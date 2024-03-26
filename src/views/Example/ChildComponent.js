@@ -1,6 +1,6 @@
 import React from "react";
-import ChildComponent from "./ChildComponent";
-class MyComponent extends React.Component{
+
+class ChildComponent extends React.Component{
 
     /*
     JSX => return block (block có thể là 1 khối <div></div>, <span></span>,...(trả về 1 phần tử của HTML))
@@ -26,10 +26,10 @@ class MyComponent extends React.Component{
         console.log('>>state:', this.state);
     }
     render(){
-        //console.log('>>render', this.state);
+        console.log('>>render', this.state);
         return (
             <> 
-                <form>
+                {/* <form>
                     <label htmlFor="fname">First name:</label><br/>
                     <input
                     onChange={(event)=>{this.handleChangeFirstName(event)}}
@@ -40,13 +40,11 @@ class MyComponent extends React.Component{
                     type="text" value={this.state.lastName}/><br/><br/>
                     <input type="submit" value="Submit"
                     onClick={(event)=>{this.handleSubmit(event)}}/>
-                </form> 
-                <ChildComponent name={'childOne'}/>
-                <ChildComponent name={'childTwo'}/>
-                <ChildComponent name={'childThree'}/>
+                </form>  */}
+                <div>ChildComponent: {this.props.name}</div>
             </>
         );
 
     }
 }
-export default MyComponent;
+export default ChildComponent;
