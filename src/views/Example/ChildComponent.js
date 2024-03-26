@@ -1,50 +1,47 @@
 import React from "react";
 
 class ChildComponent extends React.Component{
-
     /*
     JSX => return block (block có thể là 1 khối <div></div>, <span></span>,...(trả về 1 phần tử của HTML))
-
     */
-
     state = {
-        firstName: '',
-        lastName: '',
+        showJobs: false,
     }
-    handleChangeFirstName = (event) =>{
+    handleShowHide = (event) => {
         this.setState({
-            firstName: event.target.value
+            showJobs: !this.state.showJobs
         })
-    }
-    handleChangeLastName = (event) =>{
-        this.setState({
-            lastName: event.target.value
-        })
-    }
-    handleSubmit = (event)=>{
-        event.preventDefault();
-        console.log('>>state:', this.state);
     }
     render(){
-        console.log('>>render', this.state);
+        console.log('>>render', this.props);
+        let {name, age, arrJobs} = this.props;
+        let {showJobs} = this.state;
         return (
-            <> 
-                {/* <form>
-                    <label htmlFor="fname">First name:</label><br/>
-                    <input
-                    onChange={(event)=>{this.handleChangeFirstName(event)}}
-                    type="text" value={this.state.firstName}/><br/>
-                    <label htmlFor="lname">Last name:</label><br/>
-                    <input
-                    onChange={(event)=>{this.handleChangeLastName(event)}}
-                    type="text" value={this.state.lastName}/><br/><br/>
-                    <input type="submit" value="Submit"
-                    onClick={(event)=>{this.handleSubmit(event)}}/>
-                </form>  */}
-                <div>ChildComponent: {this.props.name}</div>
+            <>
+            <div>Child Component name: {name} - age child component: {age}</div>
+            {showJobs === false ? <div><button onClick={(event)=>{
+                this.handleShowHide(event);
+            }}>Show</button></div>
+            : <>
+                <div><button onClick={(event)=>{
+                    this.handleShowHide(event);
+            }}>Hide</button></div>
+                <div className="job-list"> 
+                    <div>
+                        {
+                        arrJobs.map((item,index)=>{
+                            return (<div key={item.id}>
+                                {item.jobTitle} - {item.salary}
+                            </div>)
+                        })
+                        }
+                    </div>
+                </div>
+            </>}
             </>
         );
 
     }
 }
+
 export default ChildComponent;
