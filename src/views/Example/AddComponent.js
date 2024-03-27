@@ -5,16 +5,19 @@ class AddComponent extends React.Component{
         jobTitle: '',
         salary: '',
     }
+    
     handleChangeJobTitle = (event) =>{
         this.setState({
             jobTitle: event.target.value
         })
     }
+
     handleChangeSalary = (event) =>{
         this.setState({
             salary: event.target.value
         })
     }
+
     handleSubmit = (event)=>{
         event.preventDefault(); // không làm mới trang
         if(!this.state.jobTitle || !this.state.salary){
@@ -22,7 +25,7 @@ class AddComponent extends React.Component{
             return ;
         }
         this.props.addNewJob({
-            id: '12345',
+            id: Math.floor(Math.random() * 1234),
             jobTitle: this.state.jobTitle,
             salary: this.state.salary
         })
@@ -32,6 +35,7 @@ class AddComponent extends React.Component{
         })
         console.log('>>state:', this.state);
     }
+
     render(){
         return(
             <>
