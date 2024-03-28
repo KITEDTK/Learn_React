@@ -62,6 +62,7 @@ class ListTodo extends React.Component {
     console.log(">>> check if empty object: ", isEmptyObj);
     return (
       <>
+        <p>Simple to do app with react</p>
         <div className="list-todo-container">
           <AddTodo addNewTodo={this.addNewTodo} />
           <div className="list-todo-content">
