@@ -14,6 +14,7 @@ class Nav extends React.Component {
         </a>
         <a href="/todos">Todos</a>
         <a href="/about">About</a>
+        <a href="/user">Users</a>
       </div>
     );
   }
