@@ -5,11 +5,11 @@ import { NavLink, Link } from 'react-router-dom';
 class Nav extends React.Component {
   render() {
     return (
-      <div class="topnav">
+      <div className="topnav">
         {/* <NavLink activeClassname="selected" to="/">Home</NavLink>
         <NavLink to="/todos">Todos</NavLink>
         <NavLink to="/about">About</NavLink> */}
-        <a class="active" href="/">
+        <a className="active" href="/">
           Home
         </a>
         <a href="/todos">Todos</a>
